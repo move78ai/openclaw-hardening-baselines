@@ -7,6 +7,9 @@ Goal: give OpenClaw deployers a *runnable* baseline that reduces the most common
 - unreviewed skills/extensions
 
 This repo is intentionally baseline-only (no platform, no SaaS).
+![openclaw secure baselines](https://github.com/user-attachments/assets/6d8bb970-e1ba-4ecc-9954-fc8db3b45ec9)
+
+
 
 ## What’s included
 - Hardened Docker Compose starter (`baselines/docker-compose/docker-compose.yml`)
