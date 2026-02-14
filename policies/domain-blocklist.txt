@@ -1,0 +1,5 @@
+# Optional deny list (explicitly blocked even if allowlist is broad)
+# Example placeholders:
+moltbook.ai
+*.moltbook.ai
+glot.io

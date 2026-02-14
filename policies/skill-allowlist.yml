@@ -1,0 +1,10 @@
+# Skill allowlist (template)
+# Use stable identifiers where possible (publisher, repo, checksum/signature).
+approved_skills:
+  - name: "example-skill"
+    publisher: "trusted-publisher"
+    version: ">=1.2.3"
+    allowed_tools:
+      - "http"
+    notes: "Approved for Finance bot only"
+    expires_on: "2026-06-30"

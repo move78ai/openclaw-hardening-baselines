@@ -1,0 +1,17 @@
+{
+  "tool": "act-check",
+  "generated_at_utc": "2026-02-13T00:00:00Z",
+  "score": 75,
+  "results": [
+    {
+      "id": "net.listen",
+      "title": "Listening exposure",
+      "status": "FAIL",
+      "details": "Agent listening on 0.0.0.0:XXXX",
+      "remediation": "Bind to 127.0.0.1..."
+    }
+  ],
+  "next_steps": [
+    "If score < 80: remediate..."
+  ]
+}

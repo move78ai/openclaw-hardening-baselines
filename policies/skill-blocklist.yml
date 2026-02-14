@@ -1,0 +1,8 @@
+# Skill blocklist (template)
+blocked_skills:
+  - match:
+      name_regex: "(?i)(wallet|crypto|trading|airdrop)"
+    reason: "High abuse rate; requires explicit review"
+  - match:
+      publisher_regex: "(?i)(unknown|new-account)"
+    reason: "Untrusted publisher"

@@ -1,0 +1,47 @@
+version: "3.9"
+
+services:
+  openclaw:
+    # TODO: replace with the correct image/tag you run in your environment.
+    image: openclaw/openclaw:latest
+    container_name: openclaw
+    restart: unless-stopped
+
+    # IMPORTANT: bind to localhost unless you *explicitly* need remote access.
+    # Set OPENCLAW_HOST_PORT and OPENCLAW_CONTAINER_PORT in .env
+    ports:
+      - "127.0.0.1:${OPENCLAW_HOST_PORT:-18789}:${OPENCLAW_CONTAINER_PORT:-18789}"
+
+    # Drop privileges aggressively. If OpenClaw features break, add back only what is required.
+    user: "${OPENCLAW_UID:-1000}:${OPENCLAW_GID:-1000}"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+    # Reduce writable surface.
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /run
+
+    # Minimal volumes. Prefer a dedicated directory with tight permissions.
+    volumes:
+      - ./data:/app/data:rw
+      # If you need to mount credentials or config, do it explicitly and read-only:
+      # - ./config:/app/config:ro
+
+    environment:
+      - TZ=UTC
+      # - OPENCLAW_CONFIG=/app/config/openclaw.yml
+
+    # Optional healthcheck placeholder. Replace with a real endpoint/command for your deployment.
+    healthcheck:
+      test: ["CMD-SHELL", "echo ok"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+networks:
+  default:
+    name: openclaw-baseline

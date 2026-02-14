@@ -1,0 +1,5 @@
+# One domain per line. Keep this tight.
+# Example placeholders:
+api.openai.com
+api.anthropic.com
+# <your enterprise APIs here>
